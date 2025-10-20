@@ -55,6 +55,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    env:
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
     services:
       postgres:
