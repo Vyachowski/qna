@@ -56,6 +56,21 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: ${{ secrets.DB_USERNAME }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          POSTGRES_DB: tn_qna_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ${{ secrets.DB_USERNAME }}"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     # services:
     #  redis:
     #    image: redis
@@ -75,9 +90,19 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Wait for PostgreSQL
+        run: |
+          until pg_isready -h localhost -U ${{ secrets.DB_USERNAME }}; do
+            echo "Waiting for postgres..."
+            sleep 1
+          done
+
       - name: Run tests
         env:
           RAILS_ENV: test
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_HOST: localhost
           # REDIS_URL: redis://localhost:6379/0
         run: bin/rails db:test:prepare test test:system
 
