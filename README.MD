@@ -1,0 +1,1 @@
+Проект QnA, аналог Stackoverflow, разработанный для изучения Ruby on Rails
