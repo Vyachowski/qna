@@ -101,6 +101,11 @@ jobs:
             sleep 1
           done
 
+      - name: Set up database
+        run: |
+          bin/rails db:create
+          bin/rails db:migrate
+
       - name: Run tests
         env:
           RAILS_ENV: test
