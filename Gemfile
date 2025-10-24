@@ -4,9 +4,8 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.3"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
-# Use sqlite3 and Postgres as the database for Active Record
-gem "sqlite3", ">= 2.1"
-gem "pg", "~> 1.6"
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -51,10 +50,8 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  # Test library
+  # Test library and dummy data
   gem "rspec-rails", "~> 8.0"
-
-  # Test data generator
   gem "factory_bot_rails", "~> 6.5"
 end
 
@@ -67,4 +64,10 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  # Add test helpers
+  gem "shoulda-matchers", "~> 6.5"
+
+  # Add controller test helpers
+  gem "rails-controller-testing", "~> 1.0"
 end

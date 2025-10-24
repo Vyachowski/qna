@@ -33,9 +33,10 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore IDE settings files
+# Mac OS and IDE files 
+.DS_Store
 .idea
 
-# Ignore locally installed gems
+# Ignore local installed gems.
 vendor/*
-!/vendor/.keep
+!vendor/.keep
