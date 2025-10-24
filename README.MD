@@ -1,7 +1,6 @@
-# README
+# Questions and Answers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Проект QnA, аналог Stackoverflow, разработанный для изучения Ruby on Rails
 
 Things you may want to cover:
 
