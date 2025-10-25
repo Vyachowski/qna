@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Question, type: :model do
-  it 'should create a new question' do
-    expect(Question.new(title: 'Title', body: 'body')).to be_valid
-  end
+describe Question, type: :model do
+  subject { described_class.new(title: 'Title', body: 'Body') }
 
-  it 'should not create new question' do
-    expect(Question.new(body: '123')).to_not be_valid
-    expect(Question.new(title: '123')).to_not be_valid
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:body) }
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
   end
 end
