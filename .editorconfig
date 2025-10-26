@@ -1,0 +1,40 @@
+root = true
+
+# =====================================
+# Общие правила для всех файлов
+# =====================================
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+# =====================================
+# Ruby
+# =====================================
+[*.rb]
+indent_style = space
+indent_size = 2
+
+# =====================================
+# JavaScript
+# =====================================
+[*.js]
+indent_style = space
+indent_size = 2
+
+[lib/**/*.js]
+indent_style = space
+indent_size = 2
+
+# =====================================
+# Makefile
+# =====================================
+[Makefile]
+indent_style = tab
+
+# =====================================
+# JSON / Travis
+# =====================================
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
