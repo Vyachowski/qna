@@ -22,6 +22,6 @@ class QuestionsController < ApplicationController
   helper_method :question
 
   def question_params
-    params.expect question: [ :title, :body]
+    params.expect question: [ :title, :body ]
   end
 end
