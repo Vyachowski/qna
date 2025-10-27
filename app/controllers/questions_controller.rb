@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
-  def new
-    question
-  end
+  before_action :question
+
+  def show; end
+  def new; end
 
   def create
     question.assign_attributes(question_params)
@@ -18,10 +19,9 @@ class QuestionsController < ApplicationController
   def question
     @question ||= params[:id] ? Question.find(params[:id]) : Question.new
   end
+  helper_method :question
 
   def question_params
-    params.expect :title, :body
+    params.expect question: [ :title, :body]
   end
-
-  helper_method :question
 end
