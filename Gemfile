@@ -66,7 +66,7 @@ group :test do
   gem "selenium-webdriver"
 
   # Add test helpers
-  gem "shoulda-matchers", "~> 6.5"
+  gem "shoulda-matchers", "~> 7.0"
 
   # Add controller test helpers
   gem "rails-controller-testing", "~> 1.0"
